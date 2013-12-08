@@ -4,6 +4,6 @@ library(Quandl)
 data <- read.csv('http://www.quandl.com/api/v1/datasets/EIA/SEDS_NGMPB_WY_A.csv?&auth_token=ELNA3oxQaF5yMFhZfQR7
 &trim_start=1960-12-31&trim_end=2010-12-31&sort_order=desc', colClasses=c('Date'='Date'))
 
-xts <- xts(data[,1], order.by=as.Date(data[,2]))
+xts <- xts(data[,2], order.by=as.Date(data[,1]))
 
-chart_Series(data)
+chart_Series(xts)
